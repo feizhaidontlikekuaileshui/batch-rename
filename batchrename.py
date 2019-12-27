@@ -1,5 +1,8 @@
+#coding=utf-8
+
 import os
 import re
+
 fni=open("ni","r")
 
 fname=[]
@@ -13,7 +16,7 @@ for line in fni:
     rename=re.search(r"[\u4e00-\u9fa5]+?.*?[\u4e00-\u9fa5]+?.*?[\u4e00-\u9fa5]*.*?[\u4e00-\u9fa5]*.*?",line,re.S)
     fname.append((str(rename.group())).replace(" ",""))
 
-#print(list(range(0,len(fidc)))
+os.chdir(str(input("工作路径:")))
 
 flist=os.listdir()
 for ename in flist:
@@ -21,4 +24,4 @@ for ename in flist:
         if fname[index] in ename:
             cmd="rename \""+ename+"\" \""+fidc[index]+".jpg\""
             print(cmd)
-            #os.system(cmd)
+            os.system(cmd)
